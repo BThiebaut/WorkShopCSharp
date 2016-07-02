@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkShopERP", "WorkShopERP\WorkShopERP.csproj", "{127679D2-FFCE-4840-9939-E4AEC11863DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkShopWpf", "WorkShopWpf\WorkShopWpf.csproj", "{C401E4C6-F05A-48E6-99BD-3B84D45198F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{127679D2-FFCE-4840-9939-E4AEC11863DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{127679D2-FFCE-4840-9939-E4AEC11863DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{127679D2-FFCE-4840-9939-E4AEC11863DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C401E4C6-F05A-48E6-99BD-3B84D45198F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C401E4C6-F05A-48E6-99BD-3B84D45198F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C401E4C6-F05A-48E6-99BD-3B84D45198F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C401E4C6-F05A-48E6-99BD-3B84D45198F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

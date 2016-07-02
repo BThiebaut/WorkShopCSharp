@@ -1,0 +1,14 @@
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopWpf\bin\Debug\WorkShopWpf.exe.config
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopWpf\bin\Debug\WorkShopWpf.exe
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopWpf\bin\Debug\WorkShopWpf.pdb
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\WorkShopWpf.csprojResolveAssemblyReference.cache
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\MainWindow.g.cs
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\App.g.cs
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\WorkShopWpf_MarkupCompile.cache
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\WorkShopWpf_MarkupCompile.lref
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\MainWindow.baml
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\WorkShopWpf.g.resources
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\WorkShopWpf.Properties.Resources.resources
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\WorkShopWpf.csproj.GenerateResource.Cache
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\WorkShopWpf.exe
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\WorkShopWpf.pdb

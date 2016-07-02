@@ -40,9 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkShop\Entities\Address.cs" />
+    <Compile Include="WorkShop\Entities\Base\EntityBase.cs" />
     <Compile Include="WorkShop\Entities\Categories\Fresco.cs" />
     <Compile Include="WorkShop\Entities\Categories\Furniture.cs" />
     <Compile Include="WorkShop\Entities\Categories\Other.cs" />
@@ -65,7 +65,9 @@
     <Compile Include="WorkShop\Entities\Provider.cs" />
     <Compile Include="WorkShop\Entities\WorkShop.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="WorkShop\WorkShopDiagramme.cd" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
