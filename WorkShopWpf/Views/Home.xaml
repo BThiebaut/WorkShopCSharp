@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WorkShopWpf.Views"
         xmlns:userControl="clr-namespace:WorkShopWpf.MyUserControl"
         mc:Ignorable="d"
-        Title="Home">
+        Title="Home" Height="836.5" Width="922.5">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
