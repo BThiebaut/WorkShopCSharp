@@ -9,7 +9,7 @@ namespace WorkShop.Entities
     /// <summary>
     /// Define all default content for humain entity
     /// </summary>
-    public abstract class HumainDefinition
+    public abstract class HumainDefinition : EntityBase
     {
         #region Attributs
 
@@ -35,6 +35,7 @@ namespace WorkShop.Entities
             set
             {
                 id = value;
+                this.OnPropertyChanged("Id");
             }
         }
 
@@ -51,6 +52,7 @@ namespace WorkShop.Entities
             set
             {
                 firstName = value;
+                this.OnPropertyChanged("FirstName");
             }
         }
 
@@ -67,6 +69,7 @@ namespace WorkShop.Entities
             set
             {
                 lastName = value;
+                this.OnPropertyChanged("LastName");
             }
         }
 
@@ -83,6 +86,7 @@ namespace WorkShop.Entities
             set
             {
                 address = value;
+                this.OnPropertyChanged("Address");
             }
         }
         #endregion

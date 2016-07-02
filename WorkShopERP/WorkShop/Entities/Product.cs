@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WorkShop.Entities
 {
-    public abstract class Product
+    public abstract class Product : EntityBase
     {
         #region Attributs
         private Int32 id;
@@ -30,6 +30,7 @@ namespace WorkShop.Entities
             set
             {
                 id = value;
+                this.OnPropertyChanged("Id");
             }
         }
         /// <summary>
@@ -45,6 +46,7 @@ namespace WorkShop.Entities
             set
             {
                 designation = value;
+                this.OnPropertyChanged("Designation");
             }
         }
         /// <summary>
@@ -60,6 +62,7 @@ namespace WorkShop.Entities
             set
             {
                 price = value;
+                this.OnPropertyChanged("Price");
             }
         }
         /// <summary>
@@ -75,6 +78,7 @@ namespace WorkShop.Entities
             set
             {
                 vat = value;
+                this.OnPropertyChanged("Vat");
             }
         }
         #endregion

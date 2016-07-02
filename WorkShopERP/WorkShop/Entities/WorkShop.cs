@@ -9,7 +9,7 @@ namespace WorkShop.Entities
     /// <summary>
     /// WorkShop definition
     /// </summary>
-    public class WorkShop
+    public class WorkShop : EntityBase
     {
         #region Attributs
 
@@ -33,6 +33,7 @@ namespace WorkShop.Entities
             set
             {
                 id = value;
+                this.OnPropertyChanged("Id");
             }
         }
 
@@ -49,6 +50,7 @@ namespace WorkShop.Entities
             set
             {
                 name = value;
+                this.OnPropertyChanged("Name");
             }
         }
 
@@ -65,6 +67,7 @@ namespace WorkShop.Entities
             set
             {
                 address = value;
+                this.OnPropertyChanged("Address");
             }
         }
 
@@ -81,6 +84,7 @@ namespace WorkShop.Entities
             set
             {
                 turnover = value;
+                this.OnPropertyChanged("Turnover");
             }
         }
         #endregion

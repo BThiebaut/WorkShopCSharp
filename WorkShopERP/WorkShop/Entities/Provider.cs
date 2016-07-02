@@ -29,6 +29,7 @@ namespace WorkShop.Entities
             set
             {
                 commands = value;
+                this.OnPropertyChanged("Commands");
             }
         }
         #endregion

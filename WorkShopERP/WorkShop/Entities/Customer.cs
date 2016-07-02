@@ -29,6 +29,7 @@ namespace WorkShop.Entities
             set
             {
                 commands = value;
+                this.OnPropertyChanged("Commands");
             }
         }
 
@@ -45,6 +46,7 @@ namespace WorkShop.Entities
             set
             {
                 wallet = value;
+                this.OnPropertyChanged("Wallet");
             }
         }
         #endregion
