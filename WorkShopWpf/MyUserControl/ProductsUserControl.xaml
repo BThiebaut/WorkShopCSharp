@@ -1,0 +1,19 @@
+﻿<util:BaseUserControl
+    x:Class="WorkShopWpf.MyUserControl.ProductsUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:WorkShopWpf.MyUserControl"
+    xmlns:util="clr-namespace:WorkShopWpf.MyUserControl.Base"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    >
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Orientation="Horizontal">
+            <TextBlock x:Name="productDesignation" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="{Binding Product.Designation}" VerticalAlignment="Top" Padding="10,0,0,0"/>
+            <TextBlock x:Name="productPrice" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="{Binding Product.Price}" VerticalAlignment="Top" Padding="10,0,0,0"/>
+            <TextBlock x:Name="productVat" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="{Binding Product.Vat}" VerticalAlignment="Top" Padding="10,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</util:BaseUserControl>

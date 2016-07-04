@@ -3,3 +3,8 @@ C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\WorkShopERP.p
 C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\obj\Debug\WorkShopERP.csprojResolveAssemblyReference.cache
 C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\obj\Debug\WorkShopERP.dll
 C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\obj\Debug\WorkShopERP.pdb
+C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\WorkShopERP.dll
+C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\WorkShopERP.pdb
+C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopERP\obj\Debug\WorkShopERP.csprojResolveAssemblyReference.cache
+C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopERP\obj\Debug\WorkShopERP.dll
+C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopERP\obj\Debug\WorkShopERP.pdb

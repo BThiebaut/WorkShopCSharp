@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace WorkShopWpf.MyUserControl
+namespace WorkShopWpf.MyUserControl.Base
 {
     public class BaseUserControl : UserControl, INotifyPropertyChanged
     {

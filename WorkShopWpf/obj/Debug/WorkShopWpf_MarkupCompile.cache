@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\
+C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\
 WorkShopWpf
 none
 false
 DEBUG;TRACE
-C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopWpf\App.xaml
-11151548125
+C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopWpf\App.xaml
+51900283001
 
-5-2017746502
-13738642453
-MainWindow.xaml;
+12597950991
+14-434277530
+MainWindow.xaml;MyUserControl\CustomersUserControl.xaml;MyUserControl\ProductsUserControl.xaml;Views\CustomersView.xaml;Views\ProductsView.xaml;
 
 False
 

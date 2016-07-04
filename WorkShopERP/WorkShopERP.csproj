@@ -64,6 +64,10 @@
     <Compile Include="WorkShop\Entities\Product.cs" />
     <Compile Include="WorkShop\Entities\Provider.cs" />
     <Compile Include="WorkShop\Entities\WorkShop.cs" />
+    <Compile Include="WorkShop\Enums\DataConnectionResource.cs" />
+    <Compile Include="WorkShop\Enums\EnumString.cs" />
+    <Compile Include="WorkShop\Enums\StringValueAttribute.cs" />
+    <Compile Include="WorkShop\Utils\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="WorkShop\WorkShopDiagramme.cd" />

@@ -54,14 +54,19 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Compile Include="Views\CustomersList.xaml.cs">
-      <DependentUpon>CustomersList.xaml</DependentUpon>
+    <Compile Include="MyUserControl\CustomersUserControl.xaml.cs">
+      <DependentUpon>CustomersUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Home.xaml.cs">
-      <DependentUpon>Home.xaml</DependentUpon>
+    <Compile Include="MyUserControl\ProductsUserControl.xaml.cs">
+      <DependentUpon>ProductsUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ProductsList.xaml.cs">
-      <DependentUpon>ProductsList.xaml</DependentUpon>
+    <Compile Include="ViewModel\CustomersViewModel.cs" />
+    <Compile Include="ViewModel\ProductsViewModel.cs" />
+    <Compile Include="Views\CustomersView.xaml.cs">
+      <DependentUpon>CustomersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductsView.xaml.cs">
+      <DependentUpon>ProductsView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -75,15 +80,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\CustomersList.xaml">
+    <Page Include="MyUserControl\CustomersUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Home.xaml">
+    <Page Include="MyUserControl\ProductsUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ProductsList.xaml">
+    <Page Include="Views\CustomersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProductsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -116,9 +125,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\WorkShopERP\WorkShopERP.csproj">
       <Project>{127679d2-ffce-4840-9939-e4aec11863db}</Project>

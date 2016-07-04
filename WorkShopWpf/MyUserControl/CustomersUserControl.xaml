@@ -1,0 +1,28 @@
+﻿<util:BaseUserControl
+    x:Class="WorkShopWpf.MyUserControl.CustomersUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:WorkShopWpf.MyUserControl"
+    xmlns:util="clr-namespace:WorkShopWpf.MyUserControl.Base"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    >
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Orientation="Horizontal">
+            
+            <ListView x:Name="UCCustomers" Grid.ColumnSpan="8" Grid.Column="1" HorizontalAlignment="Left" Height="480" Grid.Row="1" Grid.RowSpan="8" VerticalAlignment="Top" Width="480">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock x:Name="customerFirstName" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="{Binding Customer.FirstName}" VerticalAlignment="Top" Padding="10,0,0,0"/>
+                            <TextBlock x:Name="customerLastName" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="{Binding Customer.LastName}" VerticalAlignment="Top" Padding="10,0,0,0"/>
+                            <TextBlock x:Name="customerWallet" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="{Binding Customer.Wallet}" VerticalAlignment="Top" Padding="10,0,0,0"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</util:BaseUserControl>
