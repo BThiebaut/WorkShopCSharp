@@ -1,20 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WorkShopERP.WorkShop.Utils;
 
 namespace WorkShop.Entities
 {
     /// <summary>
     /// Command between workshop and client or workshop and provider
     /// </summary>
+    [Table("command")]
     public class Command : EntityBase
     {
         #region Attributs
-        private Int32 Id;
+        private Int32 id;
         private HumainDefinition humain;
-        private WorkShop workshop;
+        private Workshop workshop;
         private Double amount;
         private List<Product> products;
         private DateTime dateAdd;
@@ -26,26 +30,29 @@ namespace WorkShop.Entities
         // Doc + region maintenant
         #endregion
         #region Properties
+
         /// <summary>
-        /// Command Id
+        /// Entity Id
         /// </summary>
-        public int Id1
+        [Key]
+        [Column("id")]
+        public Int32 Id
         {
             get
             {
-                return Id;
+                return id;
             }
-
             set
             {
-                Id = value;
-                this.OnPropertyChanged("Id");
+                id = value;
+                OnPropertyChanged("Id");
             }
         }
 
         /// <summary>
         /// Customer / Provider entity
         /// </summary>
+        [Column("humain")]
         public HumainDefinition Humain
         {
             get
@@ -63,7 +70,8 @@ namespace WorkShop.Entities
         /// <summary>
         /// Concerned workshop
         /// </summary>
-        public WorkShop Workshop
+        [Column("workshop")]
+        public Workshop Workshop
         {
             get
             {
@@ -80,6 +88,7 @@ namespace WorkShop.Entities
         /// <summary>
         /// Amount of the bill
         /// </summary>
+        [Column("amount")]
         public double Amount
         {
             get
@@ -97,6 +106,7 @@ namespace WorkShop.Entities
         /// <summary>
         /// Product list 
         /// </summary>
+        [Column("products")]
         public List<Product> Products
         {
             get
@@ -114,6 +124,7 @@ namespace WorkShop.Entities
         /// <summary>
         /// Creation date of the command
         /// </summary>
+        [Column("dateadd")]
         public DateTime DateAdd
         {
             get
@@ -131,6 +142,7 @@ namespace WorkShop.Entities
         /// <summary>
         /// Paid date of the command
         /// </summary>
+        [Column("datepaid")]
         public DateTime DatePaid
         {
             get
@@ -156,6 +168,37 @@ namespace WorkShop.Entities
 
         }
         #region Methods
+
+        public new List<Command> LoadMultipleItems()
+        {
+            List<Command> result = new List<Command>();
+
+            for (int i = 0; i < Faker.Number.RandomNumber(3, 20); i++)
+            {
+                result.Add(LoadSingleItem());
+            }
+
+            return result;
+        }
+
+        public new Command LoadSingleItem()
+        {
+            Utils utils = new Utils();
+            Command result = new Command();
+            Customer cu = new Customer();
+            Workshop wo = new Workshop();
+            Product prod = utils.getRandomCategoriesItem();
+
+            result.Id = Faker.Number.RandomNumber();
+            result.Humain = cu.LoadSingleItem().Humain;
+            result.Workshop = wo.LoadSingleItem();
+            result.Amount = Faker.Number.Double();
+            result.Products = prod.LoadMultipleItems();
+            result.DateAdd = Faker.Date.Birthday();
+            result.datePaid = Faker.Date.Birthday();
+
+            return result;
+        }
 
         #endregion
     }

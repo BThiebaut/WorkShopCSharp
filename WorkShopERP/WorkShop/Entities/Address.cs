@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WorkShopERP.WorkShop.Utils;
 
 namespace WorkShop.Entities
 {
     /// <summary>
     /// Define all address fields
     /// </summary>
+    [Table("address")]
     public class Address : EntityBase
     {
         #region Attributs
-
         private Int32 id;
         private String address1;
         private String postCode;
@@ -21,29 +24,32 @@ namespace WorkShop.Entities
         private String phoneNumber;
         private String email;
 
-
+        private Utils utils;
 
         #endregion
         #region Properties
         /// <summary>
-        /// Address Id
+        /// Entity Id
         /// </summary>
-        public int Id
+        [Key]
+        [Column("id")]
+        public Int32 Id
         {
             get
             {
                 return id;
             }
-
             set
             {
                 id = value;
-                this.OnPropertyChanged("Id");
+                OnPropertyChanged("Id");
             }
         }
+
         /// <summary>
         /// Address lines
         /// </summary>
+        [Column("address1")]
         public string Address1
         {
             get
@@ -61,6 +67,7 @@ namespace WorkShop.Entities
         /// <summary>
         /// Address postCode
         /// </summary>
+        [Column("postcode")]
         public string PostCode
         {
             get
@@ -78,6 +85,7 @@ namespace WorkShop.Entities
         /// <summary>
         /// Address city
         /// </summary>
+        [Column("city")]
         public string City
         {
             get
@@ -95,6 +103,7 @@ namespace WorkShop.Entities
         /// <summary>
         /// Address country
         /// </summary>
+        [Column("country")]
         public string Country
         {
             get
@@ -112,6 +121,7 @@ namespace WorkShop.Entities
         /// <summary>
         /// Address contact Phone (not required)
         /// </summary>
+        [Column("phonenumber")]
         public string PhoneNumber
         {
             get
@@ -129,6 +139,7 @@ namespace WorkShop.Entities
         /// <summary>
         /// Address email (not required)
         /// </summary>
+        [Column("email")]
         public string Email
         {
             get
@@ -151,10 +162,37 @@ namespace WorkShop.Entities
         /// </summary>
         public Address()
         {
-
+            this.utils = new Utils();
         }
 
+
         #region Methods
+
+
+        public new List<Address> LoadMultipleItems()
+        {
+            List<Address> result = new List<Address>();
+
+            for (int i = 0; i < Faker.Number.RandomNumber(3, 20); i++)
+            {
+                result.Add(LoadSingleItem());
+            }
+
+            return result;
+        }
+
+        public new Address LoadSingleItem()
+        {
+            Address result = new Address();
+            result.Id = Faker.Number.RandomNumber();
+            result.Address1 = Faker.Address.StreetName();
+            result.PostCode = Faker.Address.USZipCode();
+            result.City = Faker.Address.USCity();
+            result.Country = Faker.Address.USCounty();
+            result.PhoneNumber = this.utils.GenFrenchPhoneNumber();
+            result.Email = Faker.User.Email();
+            return result;
+        }
 
         #endregion
     }

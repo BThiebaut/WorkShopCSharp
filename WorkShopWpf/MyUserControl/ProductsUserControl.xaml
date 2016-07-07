@@ -10,10 +10,42 @@
     >
 
     <Grid>
-        <StackPanel HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Orientation="Horizontal">
-            <TextBlock x:Name="productDesignation" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="{Binding Product.Designation}" VerticalAlignment="Top" Padding="10,0,0,0"/>
-            <TextBlock x:Name="productPrice" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="{Binding Product.Price}" VerticalAlignment="Top" Padding="10,0,0,0"/>
-            <TextBlock x:Name="productVat" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="{Binding Product.Vat}" VerticalAlignment="Top" Padding="10,0,0,0"/>
-        </StackPanel>
+        <ListView x:Name="itemsList" ItemsSource="{Binding}" Width="Auto">
+
+            <ListView.View>
+
+                <GridView AllowsColumnReorder="true"
+              ColumnHeaderToolTip="Customers Information">
+
+                    <GridViewColumn DisplayMemberBinding=
+                          "{Binding Path=Designation}" 
+                      Header="Designation" Width="120"/>
+                    
+                    <GridViewColumn DisplayMemberBinding=
+                          "{Binding Path=CategoryClass}" 
+                      Header="Category" Width="120"/>
+
+                    <GridViewColumn DisplayMemberBinding=
+                          "{Binding Path=Price}" 
+                      Width="120">
+                        <GridViewColumnHeader>Price
+                            <GridViewColumnHeader.ContextMenu>
+                                <ContextMenu   
+                                        Name="LastNameCM">
+                                    <MenuItem Header="Ascending" />
+                                    <MenuItem Header="Descending" />
+                                </ContextMenu>
+                            </GridViewColumnHeader.ContextMenu>
+                        </GridViewColumnHeader>
+                    </GridViewColumn>
+
+                    <GridViewColumn DisplayMemberBinding=
+                          "{Binding Path=Vat}" 
+                      Header="VAT (%)" Width="120"/>
+                </GridView>
+
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </util:BaseUserControl>

@@ -8,16 +8,13 @@ namespace WorkShopERP.WorkShop.Enums
 {
     public enum DataConnectionResource : Int32
     {
-        [StringValue("Server=database.thiebaut.ovh;Port=3306; Database = user_workshop;Uid = user_workshop;Pwd = passware_workshop" )]
+        [StringValue("Server=127.0.0.2;Port=3306;Database=csharp_workshop_server;Uid=root;Pwd=;")]
+        SERVERMYSQL = 1,
        
-        GENERICMYSQL = 1,
-       
-        [StringValue("Server=127.0.0.1;Port=3306; Database = user_workshop;Uid = user_workshop;Pwd = passware_workshop")]
-
+        [StringValue("Server=127.0.0.2;Port=3306;Database=csharp_workshop;Uid=root;Pwd=;")]
         LOCALMYQSL = 2,
        
-        [StringValue("http://api.thiebaut.ovh")]
-       
+        [StringValue("http://localhost:59165/api/")]
         LOCALAPI = 3,
  }
 }

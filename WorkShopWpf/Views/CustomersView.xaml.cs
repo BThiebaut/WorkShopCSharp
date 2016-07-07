@@ -46,6 +46,15 @@ namespace WorkShopWpf.Views
         #region methods
 
         #endregion
-        
+
+        private void btnNavHome_Click(object sender, RoutedEventArgs e)
+        {
+            (this.Parent as NavigationWindow).Content = new HomeNavigation();
+        }
+
+        private void UCCustomers_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

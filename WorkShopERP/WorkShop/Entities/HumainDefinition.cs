@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +11,8 @@ namespace WorkShop.Entities
     /// <summary>
     /// Define all default content for humain entity
     /// </summary>
-    public abstract class HumainDefinition : EntityBase
+    [Table("humaindefinitions")]
+    public class HumainDefinition : EntityBase
     {
         #region Attributs
 
@@ -25,6 +28,8 @@ namespace WorkShop.Entities
         /// <summary>
         /// Id of an humain representation
         /// </summary>
+        [Key]
+        [Column("id")]
         public int Id
         {
             get
@@ -42,6 +47,7 @@ namespace WorkShop.Entities
         /// <summary>
         /// FirstName of the representation
         /// </summary>
+        [Column("firstname")]
         public string FirstName
         {
             get
@@ -59,6 +65,7 @@ namespace WorkShop.Entities
         /// <summary>
         /// Lastname of the representation
         /// </summary>
+        [Column("lastname")]
         public string LastName
         {
             get
@@ -76,6 +83,7 @@ namespace WorkShop.Entities
         /// <summary>
         /// Address of the representation
         /// </summary>
+        [Column("address")]
         public Address Address
         {
             get
@@ -92,7 +100,7 @@ namespace WorkShop.Entities
         #endregion
         #region Constructors
         /// <summary>
-        /// Default constructor
+        /// Default constructor (unusable)
         /// </summary>
         public HumainDefinition()
         {
@@ -104,6 +112,32 @@ namespace WorkShop.Entities
         {
             return this.FirstName + " " + this.LastName + " " + this.Address;
         }
+
+        public new List<HumainDefinition> LoadMultipleItems()
+        {
+            List<HumainDefinition> result = new List<HumainDefinition>();
+
+            for (int i = 0; i < Faker.Number.RandomNumber(3, 20); i++)
+            {
+                result.Add(LoadSingleItem());
+            }
+
+            return result;
+        }
+
+
+        public new HumainDefinition LoadSingleItem()
+        {
+            Address adr = new Address();
+
+            HumainDefinition result = new HumainDefinition();
+            result.FirstName = Faker.Name.FirstName();
+            result.LastName = Faker.Name.LastName();
+            result.Address = adr.LoadSingleItem();
+
+            return result;
+        }
+
         #endregion
     }
 }

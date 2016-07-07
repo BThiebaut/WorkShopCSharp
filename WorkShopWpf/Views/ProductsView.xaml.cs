@@ -47,5 +47,9 @@ namespace WorkShopWpf.Views
 
         #endregion
 
+        private void btnNavHome_Click(object sender, RoutedEventArgs e)
+        {
+            (this.Parent as NavigationWindow).Content = new HomeNavigation();
+        }
     }
 }

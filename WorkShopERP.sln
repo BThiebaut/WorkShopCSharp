@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkShopERP", "WorkShopERP\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkShopWpf", "WorkShopWpf\WorkShopWpf.csproj", "{C401E4C6-F05A-48E6-99BD-3B84D45198F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{3058C1B3-A7C5-49F7-9419-1757B7AEBE0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C401E4C6-F05A-48E6-99BD-3B84D45198F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C401E4C6-F05A-48E6-99BD-3B84D45198F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C401E4C6-F05A-48E6-99BD-3B84D45198F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3058C1B3-A7C5-49F7-9419-1757B7AEBE0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3058C1B3-A7C5-49F7-9419-1757B7AEBE0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3058C1B3-A7C5-49F7-9419-1757B7AEBE0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3058C1B3-A7C5-49F7-9419-1757B7AEBE0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

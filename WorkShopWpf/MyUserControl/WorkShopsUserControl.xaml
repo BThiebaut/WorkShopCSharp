@@ -1,0 +1,47 @@
+﻿<util:BaseUserControl
+    x:Class="WorkShopWpf.MyUserControl.WorkShopsUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:WorkShopWpf.MyUserControl"
+    xmlns:util="clr-namespace:WorkShopWpf.MyUserControl.Base"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    >
+
+    <Grid>
+        <ListView x:Name="itemsList" ItemsSource="{Binding}" Width="Auto">
+
+            <ListView.View>
+
+                <GridView AllowsColumnReorder="true"
+              ColumnHeaderToolTip="Customers Information">
+
+                    <GridViewColumn DisplayMemberBinding=
+                          "{Binding Path=Name}" 
+                      Header="Workshop Name" Width="150"/>
+
+                    <GridViewColumn DisplayMemberBinding=
+                          "{Binding Path=Turnover}" 
+                      Width="150">
+                        <GridViewColumnHeader>WorkShop Turnover
+                            <GridViewColumnHeader.ContextMenu>
+                                <ContextMenu   
+                                        Name="LastNameCM">
+                                    <MenuItem Header="Ascending" />
+                                    <MenuItem Header="Descending" />
+                                </ContextMenu>
+                            </GridViewColumnHeader.ContextMenu>
+                        </GridViewColumnHeader>
+                    </GridViewColumn>
+
+                    <GridViewColumn DisplayMemberBinding=
+                          "{Binding Path=Address.Address1}" 
+                      Header="Location" Width="150"/>
+                </GridView>
+
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</util:BaseUserControl>

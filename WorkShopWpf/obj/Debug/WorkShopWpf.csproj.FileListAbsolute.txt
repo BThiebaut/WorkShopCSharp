@@ -37,3 +37,13 @@ C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\MyUserCo
 C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\Views\ProductsView.g.cs
 C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\MyUserControl\ProductsUserControl.baml
 C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\Views\ProductsView.baml
+C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopWpf\bin\Debug\Faker.dll
+C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopWpf\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopWpf\bin\Debug\MySql.Data.dll
+C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopWpf\bin\Debug\EntityFramework.xml
+C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\Views\HomeNavigation.g.cs
+C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\Views\HomeNavigation.baml
+C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\MyUserControl\WorkShopsUserControl.g.cs
+C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopWpf\obj\Debug\MyUserControl\WorkShopsUserControl.baml
+C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopWpf\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopWpf\bin\Debug\Newtonsoft.Json.xml

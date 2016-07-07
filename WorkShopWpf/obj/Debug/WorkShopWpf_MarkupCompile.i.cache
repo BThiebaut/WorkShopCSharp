@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopWpf\App.xaml
-51900283001
+7-1864766025
 
-16-1301686791
-14-434277530
-MainWindow.xaml;MyUserControl\CustomersUserControl.xaml;MyUserControl\ProductsUserControl.xaml;Views\CustomersView.xaml;Views\ProductsView.xaml;
+191309908820
+1511120097
+MainWindow.xaml;MyUserControl\CustomersUserControl.xaml;MyUserControl\ProductsUserControl.xaml;MyUserControl\WorkShopsUserControl.xaml;Views\CustomersView.xaml;Views\HomeNavigation.xaml;Views\ProductsView.xaml;
 
 True
 
