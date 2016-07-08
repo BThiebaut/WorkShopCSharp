@@ -17,6 +17,7 @@ namespace WorkShop.Entities
         private Int32 id;
         private List<Workshop> workShops;
         private HumainDefinition humain;
+        private Int32 humainId;
         #endregion
         #region Properties
 
@@ -72,6 +73,24 @@ namespace WorkShop.Entities
             {
                 humain = value;
                 this.OnPropertyChanged("Humain");
+                this.HumainId = value.Id;
+            }
+        }
+
+        /// <summary>
+        /// Humain Id
+        /// </summary>
+        [Column("humainid")]
+        public int HumainId
+        {
+            get
+            {
+                return humainId;
+            }
+
+            set
+            {
+                humainId = value;
             }
         }
         #endregion

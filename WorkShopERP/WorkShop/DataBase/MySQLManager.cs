@@ -17,7 +17,6 @@ namespace WorkShopERP.WorkShop.DataBase
     {
         #region Properties
         public DbSet<TEntity> DbSetT { get; set; }
-        public String connexionSting { get; set; }
         #endregion
 
         #region Constructor
@@ -25,7 +24,6 @@ namespace WorkShopERP.WorkShop.DataBase
                 : base(EnumString.GetStringValue(dataConnectionResource))
         {
             FullDb fullDB = new FullDb(dataConnectionResource);
-            this.connexionSting = EnumString.GetStringValue(dataConnectionResource);
         }
         #endregion
 
@@ -77,69 +75,6 @@ namespace WorkShopERP.WorkShop.DataBase
             result.AddRange(temp);
 
             return result;
-        }
-        /// <summary>
-        /// Get Full entity with Join 
-        /// </summary>
-        /// <param name="obj"> Aim class </param>
-        /// <param name="where"> Where clause </param>
-        /// <returns></returns>
-        public async Task<IEnumerable<TEntity>> GetWithJoin(TEntity item, String where)
-        {
-            DbSet<TEntity> temp = default(DbSet<TEntity>);
-            List<TEntity> result = new List<TEntity>();
-            Int32 indexes = 0;
-            Int32 lastIndex;
-            Boolean hasRecursive = false;
-            String table = "";
-
-            var propTable = item.GetType().ToString().Split('.');
-            table = propTable[propTable.Count() - 1].ToLower();
-
-            String query = "SELECT * FROM " + table + " AS t" + indexes;
-            String joins = "";
-            
-
-            var properties = item.GetType().GetProperties();
-            foreach (var prop in properties)
-            {
-                if (prop.PropertyType.BaseType.Name == "EntityBase")
-                {
-                    lastIndex = indexes;
-                    indexes++;
-                    hasRecursive = true;
-                    table = prop.PropertyType.Name.ToLower();
-
-                    joins += "LEFT JOIN " + table + " as t" + indexes + " ON (t" + lastIndex + ".id = t." + indexes + ".id ) ";
-                }
-
-            }
-
-            await Task.Factory.StartNew(() =>
-            {
-                MySqlConnection sqlConnection1 = new MySqlConnection(this.connexionSting);
-                MySqlCommand cmd = new MySqlCommand();
-                MySqlDataReader reader;
-
-                cmd.CommandText = query + " " + joins + " " + where;
-                cmd.CommandType = CommandType.Text;
-                cmd.Connection = sqlConnection1;
-
-                sqlConnection1.Open();
-
-                reader = cmd.ExecuteReader();
-                
-
-                sqlConnection1.Close();;
-            });
-            result.AddRange(temp);
-
-            return result;
-        }
-
-        private void SetJoinsRef<T>(ref String joins, List<T> properties) where T : EntityBase
-        {
-           
         }
 
         public async Task<Int32> Delete(TEntity item)

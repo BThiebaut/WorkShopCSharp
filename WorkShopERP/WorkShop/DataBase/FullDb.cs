@@ -12,31 +12,7 @@ namespace WorkShopERP.WorkShop.DataBase
     [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     class FullDb : DbContext
     {
-        /*
-        #region Singleton
-        private static volatile FullDb instance;
-        private static object syncRoot = new Object();
-
-        private FullDb() { }
-
-        public static FullDb Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    lock (syncRoot)
-                    {
-                        if (instance == null)
-                            instance = new FullDb();
-                    }
-                }
-
-                return instance;
-            }
-        }
-        #endregion
-        */
+       
         #region Properties
         public DbSet<Address> DbSetAddress { get; set; }
         public DbSet<Command> DbSetCommand { get; set; }

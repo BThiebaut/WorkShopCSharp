@@ -19,6 +19,7 @@ namespace WorkShop.Entities
         private List<Command> commands;
         private Int32 wallet;
         private HumainDefinition humain;
+        private Int32 humainId;
         #endregion
         #region Properties
 
@@ -92,6 +93,24 @@ namespace WorkShop.Entities
             {
                 humain = value;
                 this.OnPropertyChanged("Humain");
+                this.HumainId = value.Id;
+            }
+        }
+
+        /// <summary>
+        /// Humain Id
+        /// </summary>
+        [Column("humainid")]
+        public int HumainId
+        {
+            get
+            {
+                return humainId;
+            }
+
+            set
+            {
+                humainId = value;
             }
         }
 

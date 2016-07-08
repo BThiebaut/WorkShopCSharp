@@ -13,6 +13,8 @@ using System.Windows;
 using System.Windows.Threading;
 using System.Threading;
 using WorkShopERP.WorkShop.API;
+using WorkShopERP.WorkShop.DataBase;
+using WorkShopERP.WorkShop.Enums;
 
 namespace WorkShopWpf.ViewModel
 {
@@ -36,7 +38,7 @@ namespace WorkShopWpf.ViewModel
         #endregion
 
         #region Methods
-
+        /*
         private void LoadItems()
         {
             Utils utils = new Utils();
@@ -70,18 +72,74 @@ namespace WorkShopWpf.ViewModel
             int a = 0;
             a++;
             */
-            /*AsyncFactory fact = new AsyncFactory();
-            fact.TestIt(); */
-            /*
-            WebServiceManager<Address> wsm = new WebServiceManager<Address>(WorkShopERP.WorkShop.Enums.DataConnectionResource.LOCALAPI);
-            Address adr = new Address().LoadSingleItem();
-            Address apiResult;
+        /*AsyncFactory fact = new AsyncFactory();
+        fact.TestIt(); */
+        /*
+        WebServiceManager<Address> wsm = new WebServiceManager<Address>(WorkShopERP.WorkShop.Enums.DataConnectionResource.LOCALAPI);
+        Address adr = new Address().LoadSingleItem();
+        Address apiResult;
 
-            adr = await wsm.Post(adr);
+        adr = await wsm.Post(adr);
 
-            apiResult = await wsm.Get(adr.Id);
-            */
+        apiResult = await wsm.Get(adr.Id);
 
+
+    }
+    */
+
+        private void LoadItems()
+        {
+            Workshop c = new Workshop().LoadSingleItem();
+            Utils utils = new Utils();
+
+            MySQLManager<Workshop> db = new MySQLManager<Workshop>(DataConnectionResource.LOCALMYQSL);
+            Task.Factory.StartNew(() =>
+            {
+                List<Workshop> dbData = LoadListItemsFromDb(db).Result;
+
+                if (dbData.Count() > 0)
+                {
+
+                    Application appl = System.Windows.Application.Current;
+                    appl.Dispatcher.BeginInvoke(DispatcherPriority.Background,
+                        new DispatcherOperationCallback(this.homeNavigation.WorkShopsUserControl.LoadItem), dbData);
+
+                }
+                else
+                {
+
+                
+                        List<Workshop> cList = c.LoadMultipleItems();
+                        MySQLManager<Workshop> manager = new MySQLManager<Workshop>(DataConnectionResource.LOCALMYQSL);
+                        manager.Insert(cList);
+                        this.LoadItems();
+                
+                }
+            });
+        }
+
+        private Task<List<Workshop>> LoadListItemsFromDb(MySQLManager<Workshop> db)
+        {
+            Func<List<Workshop>> dbResult = new Func<List<Workshop>>(() =>
+            {
+                List<Workshop> dbData = db.Get().Result as List<Workshop>;
+
+                return dbData;
+            });
+
+            return Task.Run(dbResult);
+        }
+
+        private Task<List<Workshop>> LoadListItemsApi(WebServiceManager<Workshop> api)
+        {
+            Func<List<Workshop>> apiResult = new Func<List<Workshop>>(() =>
+            {
+
+                List<Workshop> apiData = api.Get().Result as List<Workshop>;
+                return apiData;
+            });
+
+            return Task.Run(apiResult);
         }
 
         private void LinkItems()

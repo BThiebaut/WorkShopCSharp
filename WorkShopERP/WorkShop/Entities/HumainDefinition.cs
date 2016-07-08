@@ -20,6 +20,7 @@ namespace WorkShop.Entities
         private String firstName;
         private String lastName;
         private Address address;
+        private Int32 addressId;
 
 
 
@@ -95,6 +96,25 @@ namespace WorkShop.Entities
             {
                 address = value;
                 this.OnPropertyChanged("Address");
+                this.AddressId = value.Id;
+            }
+        }
+
+        /// <summary>
+        /// Address Id
+        /// </summary>
+        [Column("addressid")]
+        public int AddressId
+        {
+            get
+            {
+                return addressId;
+            }
+
+            set
+            {
+                addressId = value;
+                this.OnPropertyChanged("AddressId");
             }
         }
         #endregion

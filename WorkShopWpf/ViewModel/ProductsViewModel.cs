@@ -46,29 +46,30 @@ namespace WorkShopWpf.ViewModel
             Utils utils = new Utils();
 
             MySQLManager<Product> db = new MySQLManager<Product>(DataConnectionResource.LOCALMYQSL);
-
-            List<Product> dbData = LoadListItemsFromDb(db).Result;
-
-            if (dbData.Count() > 0)
+            Task.Factory.StartNew(() =>
             {
+                List<Product> dbData = LoadListItemsFromDb(db).Result;
 
-                Application appl = System.Windows.Application.Current;
-                appl.Dispatcher.BeginInvoke(DispatcherPriority.Background,
-                    new DispatcherOperationCallback(this.productsView.ProductsUserControl.LoadItem), dbData);
-
-            }
-            else
-            {
-
-                Task.Factory.StartNew(() =>
+                if (dbData.Count() > 0)
                 {
-                    List<Product> cList = c.LoadMultipleItems();
-                    MySQLManager<Product> manager = new MySQLManager<Product>(DataConnectionResource.LOCALMYQSL);
-                    manager.Insert(cList);
-                    this.LoadItems();
-                });
 
-            }
+                    Application appl = System.Windows.Application.Current;
+                    appl.Dispatcher.BeginInvoke(DispatcherPriority.Background,
+                        new DispatcherOperationCallback(this.productsView.ProductsUserControl.LoadItem), dbData);
+
+                }
+                else
+                {
+
+                
+                        List<Product> cList = c.LoadMultipleItems();
+                        MySQLManager<Product> manager = new MySQLManager<Product>(DataConnectionResource.LOCALMYQSL);
+                        manager.Insert(cList);
+                        this.LoadItems();
+               
+
+                }
+            });
         }
 
         private Task<List<Product>> LoadListItemsFromDb(MySQLManager<Product> db)
@@ -80,7 +81,6 @@ namespace WorkShopWpf.ViewModel
                 foreach (var item in dbData)
                 {
                     item.SetCategoryClassName();
-                    Product merde = item;
                 }
 
                 return dbData;

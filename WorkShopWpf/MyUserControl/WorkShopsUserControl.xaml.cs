@@ -25,21 +25,22 @@ namespace WorkShopWpf.MyUserControl
     public partial class WorkShopsUserControl : BaseUserControl
     {
         #region attributs
-        private ObservableCollection<Workshop> workShops;
+        private ObservableCollection<Workshop> workshops;
         private Address address;
+        private List<Owner> owners;
         #endregion
 
         #region properties
-        public ObservableCollection<Workshop> WorkShops
+        public ObservableCollection<Workshop> Workshops
         {
             get
             {
-                return this.workShops;
+                return this.workshops;
             }
 
             set
             {
-                this.workShops = value;
+                this.workshops = value;
                 base.OnPropertyChanged("WorkShops");
             }
         }
@@ -57,26 +58,47 @@ namespace WorkShopWpf.MyUserControl
                 base.OnPropertyChanged("Address");
             }
         }
-        
+
+        public List<Owner> Owners
+        {
+            get
+            {
+                return this.owners;
+            }
+
+            set
+            {
+                this.owners = value;
+                base.OnPropertyChanged("Owners");
+            }
+        }
+        public ObservableCollection<Workshop> Obs { get; set; }
         #endregion
 
         #region constructor
         public WorkShopsUserControl()
         {
             this.InitializeComponent();
-
-
-            Utils utils = new Utils();
-            Workshop c = new Workshop();
-
-            this.WorkShops = utils.ConvertListToObservableCollection<Workshop>(c.LoadMultipleItems());
-            this.itemsList.ItemsSource = this.WorkShops;
+            this.Workshops = this.workshops;
+            Obs = new ObservableCollection<Workshop>();
+            this.itemsList.ItemsSource = Obs;
             this.DataContext = this;
         }
         #endregion
 
         #region methods
-
+        /// <summary>
+        /// Set Workshops list to display
+        /// </summary>
+        public object LoadItem(object items)
+        {
+            this.Obs.Clear();
+            foreach (var item in (List<Workshop>)items)
+            {
+                this.Obs.Add(item);
+            }
+            return null;
+        }
         #endregion
     }
 }

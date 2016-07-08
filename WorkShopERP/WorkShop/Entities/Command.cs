@@ -18,7 +18,9 @@ namespace WorkShop.Entities
         #region Attributs
         private Int32 id;
         private HumainDefinition humain;
+        private Int32 humainId;
         private Workshop workshop;
+        private Int32 workshopId;
         private Double amount;
         private List<Product> products;
         private DateTime dateAdd;
@@ -50,7 +52,7 @@ namespace WorkShop.Entities
         }
 
         /// <summary>
-        /// Customer / Provider entity
+        /// Humain definition for database link
         /// </summary>
         [Column("humain")]
         public HumainDefinition Humain
@@ -64,6 +66,24 @@ namespace WorkShop.Entities
             {
                 humain = value;
                 this.OnPropertyChanged("Humain");
+                this.HumainId = value.Id;
+            }
+        }
+
+        /// <summary>
+        /// Humain Id
+        /// </summary>
+        [Column("humainid")]
+        public int HumainId
+        {
+            get
+            {
+                return humainId;
+            }
+
+            set
+            {
+                humainId = value;
             }
         }
 
@@ -82,6 +102,24 @@ namespace WorkShop.Entities
             {
                 workshop = value;
                 this.OnPropertyChanged("Workshop");
+                this.WorkshopId = value.Id;
+            }
+        }
+
+        /// <summary>
+        /// Workshop Id
+        /// </summary>
+        [Column("workshop_id")]
+        public int WorkshopId
+        {
+            get
+            {
+                return workshopId;
+            }
+
+            set
+            {
+                workshopId = value;
             }
         }
 
@@ -156,6 +194,8 @@ namespace WorkShop.Entities
                 this.OnPropertyChanged("datePaid");
             }
         }
+
+       
         #endregion
         #region Constructors
 

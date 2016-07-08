@@ -12,11 +12,12 @@ namespace WorkShop.Entities
     /// Contact class, use only for potential newsletter system
     /// Default HumainDefinitions are only used
     /// </summary>
-    public class Contact : HumainDefinition
+    public class Contact : EntityBase
     {
         #region Attributs
         private Int32 id;
         private HumainDefinition humain;
+        private Int32 humainId;
         #endregion
         #region Properties
 
@@ -54,6 +55,24 @@ namespace WorkShop.Entities
             {
                 humain = value;
                 this.OnPropertyChanged("Humain");
+                this.HumainId = value.Id;
+            }
+        }
+
+        /// <summary>
+        /// Humain Id
+        /// </summary>
+        [Column("humainid")]
+        public int HumainId
+        {
+            get
+            {
+                return humainId;
+            }
+
+            set
+            {
+                humainId = value;
             }
         }
         #endregion

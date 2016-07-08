@@ -48,29 +48,30 @@ namespace WorkShopWpf.ViewModel
             Utils utils = new Utils();
             
             MySQLManager<Customer> db = new MySQLManager<Customer>(DataConnectionResource.LOCALMYQSL);
-
-            List<Customer> dbData = LoadListItemsFromDb(db).Result;
-
-            if (dbData.Count() > 0)
+            Task.Factory.StartNew(() =>
             {
-           
-                Application appl = System.Windows.Application.Current;
-                    appl.Dispatcher.BeginInvoke(DispatcherPriority.Background,
-                        new DispatcherOperationCallback(this.customersView.CustomersUserControl.LoadItem), dbData);
+                List<Customer> dbData = LoadListItemsFromDb(db).Result;
 
-            }
-            else
-            {
-                
-                Task.Factory.StartNew(() =>
+                if (dbData.Count() > 0)
                 {
-                    List<Customer> cList = c.LoadMultipleItems();
-                    MySQLManager<Customer> managerCustomer = new MySQLManager<Customer>(DataConnectionResource.LOCALMYQSL);
-                    managerCustomer.Insert(cList);
-                    this.LoadItems();
-                });
+           
+                    Application appl = System.Windows.Application.Current;
+                        appl.Dispatcher.BeginInvoke(DispatcherPriority.Background,
+                            new DispatcherOperationCallback(this.customersView.CustomersUserControl.LoadItem), dbData);
 
-            }
+                }
+                else
+                {
+                
+                
+                        List<Customer> cList = c.LoadMultipleItems();
+                        MySQLManager<Customer> managerCustomer = new MySQLManager<Customer>(DataConnectionResource.LOCALMYQSL);
+                        managerCustomer.Insert(cList);
+                        this.LoadItems();
+                
+
+                }
+            });
 
         }
 
@@ -98,8 +99,8 @@ namespace WorkShopWpf.ViewModel
 
                 foreach (var item in dbData)
                 {
-                    db.GetWithJoin(item, "WHERE 1=1");
-                    item.Humain = dbH.Get(item.Id).Result;
+                    item.Humain = dbH.Get(item.HumainId).Result;
+                    item.Humain.Address = dbA.Get(item.Humain.AddressId).Result;
                 }
                 return dbData;
 
