@@ -23,8 +23,10 @@ namespace WorkShop.Entities
         private Int32 workshopId;
         private Double amount;
         private List<Product> products;
+        private String productsId;
         private DateTime dateAdd;
         private DateTime datePaid;
+        private String productsToString;
 
 
 
@@ -155,6 +157,14 @@ namespace WorkShop.Entities
             set
             {
                 products = value;
+                foreach (var item in products)
+                {
+                    if (item.Id != 0)
+                    {
+                        this.ProductsId = item.Id.ToString();
+                    }
+
+                }
                 this.OnPropertyChanged("Products");
             }
         }
@@ -195,7 +205,49 @@ namespace WorkShop.Entities
             }
         }
 
-       
+        /// <summary>
+        /// Products Id list for retrievering
+        /// </summary>
+        [Column("productsidserial")]
+        public String ProductsId
+        {
+            get
+            {
+                return productsId;
+            }
+
+            set
+            {
+                if (productsId.Contains(";"))
+                {
+                    productsId += value;
+                }else
+                {
+                    productsId += value + ";";
+                }
+                
+                this.OnPropertyChanged("ProductsId");
+            }
+        }
+
+        /// <summary>
+        /// Products List to string format for list display
+        /// </summary>
+        [NotMapped]
+        public string ProductsToString
+        {
+            get
+            {
+                return productsToString;
+            }
+
+            set
+            {
+                productsToString += ", " + value;
+            }
+        }
+
+
         #endregion
         #region Constructors
 
@@ -205,7 +257,8 @@ namespace WorkShop.Entities
         /// </summary>
         public Command()
         {
-
+            this.products = new List<Product>();
+            this.productsId = "";
         }
         #region Methods
 

@@ -105,16 +105,7 @@ namespace WorkShopWpf.ViewModel
                         new DispatcherOperationCallback(this.homeNavigation.WorkShopsUserControl.LoadItem), dbData);
 
                 }
-                else
-                {
-
-                
-                        List<Workshop> cList = c.LoadMultipleItems();
-                        MySQLManager<Workshop> manager = new MySQLManager<Workshop>(DataConnectionResource.LOCALMYQSL);
-                        manager.Insert(cList);
-                        this.LoadItems();
-                
-                }
+              
             });
         }
 

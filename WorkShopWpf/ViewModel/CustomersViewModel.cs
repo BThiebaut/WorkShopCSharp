@@ -60,17 +60,7 @@ namespace WorkShopWpf.ViewModel
                             new DispatcherOperationCallback(this.customersView.CustomersUserControl.LoadItem), dbData);
 
                 }
-                else
-                {
-                
-                
-                        List<Customer> cList = c.LoadMultipleItems();
-                        MySQLManager<Customer> managerCustomer = new MySQLManager<Customer>(DataConnectionResource.LOCALMYQSL);
-                        managerCustomer.Insert(cList);
-                        this.LoadItems();
-                
-
-                }
+               
             });
 
         }

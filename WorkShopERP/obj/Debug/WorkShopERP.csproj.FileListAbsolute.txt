@@ -18,3 +18,13 @@ C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\EntityFr
 C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Benjamin\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\WorkShopERP.dll.config
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\EntityFramework.dll
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\Faker.dll
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\MySql.Data.dll
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\mysql.data.entity.EF6.dll
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\EntityFramework.xml
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\Newtonsoft.Json.xml

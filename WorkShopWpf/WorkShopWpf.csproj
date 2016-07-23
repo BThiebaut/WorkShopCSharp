@@ -55,6 +55,12 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="MyUserControl\CommandFormUserControl.xaml.cs">
+      <DependentUpon>CommandFormUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyUserControl\CommandsUserControl.xaml.cs">
+      <DependentUpon>CommandsUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyUserControl\CustomersUserControl.xaml.cs">
       <DependentUpon>CustomersUserControl.xaml</DependentUpon>
     </Compile>
@@ -64,9 +70,18 @@
     <Compile Include="MyUserControl\WorkShopsUserControl.xaml.cs">
       <DependentUpon>WorkShopsUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\CommandFormViewModel.cs" />
+    <Compile Include="ViewModel\CommandsViewModel.cs" />
     <Compile Include="ViewModel\CustomersViewModel.cs" />
+    <Compile Include="ViewModel\Process\Fixtures.cs" />
     <Compile Include="ViewModel\ProductsViewModel.cs" />
     <Compile Include="ViewModel\WorkShopsViewModel.cs" />
+    <Compile Include="Views\CommandFormView.xaml.cs">
+      <DependentUpon>CommandFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CommandsView.xaml.cs">
+      <DependentUpon>CommandsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CustomersView.xaml.cs">
       <DependentUpon>CustomersView.xaml</DependentUpon>
     </Compile>
@@ -88,6 +103,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MyUserControl\CommandFormUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyUserControl\CommandsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyUserControl\CustomersUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -97,6 +120,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyUserControl\WorkShopsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CommandFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CommandsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -35,10 +35,10 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <userControl:ProductsUserControl x:Name="UCProducts" Grid.Column="1" Grid.ColumnSpan="8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="8" Grid.Row="1" Margin="0,2,0,58"/>
-        <Button x:Name="btnNewProduct" Content="+" FontSize="32" Grid.Row="6" HorizontalAlignment="Center" Width="60" Grid.Column="9"/>
-        <Button x:Name="btnDelProduct" Content="-" FontSize="32" Grid.Row="7" HorizontalAlignment="Center" Width="60" Grid.Column="9" />
-        <Button x:Name="btnEditProduct" Content="Edit" FontSize="16" Grid.Row="5" HorizontalAlignment="Center" Width="60" Grid.Column="9"/>
-        <Button x:Name="btnNavHome" Content="Home" FontSize="16" Grid.Row="7" HorizontalAlignment="Center" Width="60" Height="60" VerticalAlignment="Top" Click="btnNavHome_Click"/>
+        <Button x:Name="btnNewProduct" Content="+" FontSize="32" Grid.Row="6" HorizontalAlignment="Center" Width="60" Grid.Column="9" Margin="0,8,0,58" Grid.RowSpan="2"/>
+        <Button x:Name="btnDelProduct" Content="-" FontSize="32" Grid.Row="7" HorizontalAlignment="Center" Width="60" Grid.Column="9" Margin="0,8,0,59" Grid.RowSpan="2" />
+        <Button x:Name="btnEditProduct" Content="Edit" FontSize="16" Grid.Row="5" HorizontalAlignment="Center" Width="60" Grid.Column="9" Margin="0,8,0,59" Grid.RowSpan="2"/>
+        <Button x:Name="btnNavHome" Content="Home" FontSize="16" Grid.Row="7" HorizontalAlignment="Center" Width="60" Height="60" VerticalAlignment="Top" Click="btnNavHome_Click" Margin="0,14,0,0" Grid.RowSpan="2"/>
         <TextBlock x:Name="textBlockTitle" Grid.Column="3" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Products List" VerticalAlignment="Center" Grid.ColumnSpan="4" Width="182" Height="60" Margin="58,0,0,0"/>
     </Grid>
 </Page>

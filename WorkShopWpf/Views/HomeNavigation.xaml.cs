@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,8 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using WorkShopWpf.MyUserControl;
 using WorkShopWpf.ViewModel;
+using WorkShopWpf.ViewModel.Process;
 
 namespace WorkShopWpf.Views
 {
@@ -48,6 +51,41 @@ namespace WorkShopWpf.Views
         {
             (this.Parent as NavigationWindow).Content = new CustomersView();
         }
+
+        private void navCommands_Click(object sender, RoutedEventArgs e)
+        {
+            (this.Parent as NavigationWindow).Content = new CommandsView();
+        }
+
+        private void GenData_Click(object sender, RoutedEventArgs e)
+        {
+            this.isGenLabel.Content = "Generation in Process...";
+            Fixtures fix = new Fixtures();
+            Task.Factory.StartNew(() =>
+            {
+                while (!fix.IsFix)
+                {
+                    Thread.Sleep(2000);
+                }
+
+            }).ContinueWith((Task obj) =>
+            {
+
+                Application appl = System.Windows.Application.Current;
+                appl.Dispatcher.BeginInvoke(DispatcherPriority.Background,
+                    new DispatcherOperationCallback(this.SetOkMessage), null);
+
+            });
+
+        }
+
+        public object SetOkMessage(object o)
+        {
+            this.isGenLabel.Content = "Generation OK";
+            return null;
+        }
         #endregion
+
+
     }
 }
