@@ -1,0 +1,502 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WorkShopERP</name>
+    </assembly>
+    <members>
+        <member name="T:WorkShop.CommandWorker">
+            <summary>
+            This class manages a Worker task wich goal is to execute each task from a command queue.
+            It is a producer / consumer pattern, just enqueue task then the worker will execute one by one in FIFO order.
+            </summary>
+        </member>
+        <member name="F:WorkShop.CommandWorker.mCommandQueue">
+            <summary>
+            A list that stores all the commands that has been called before the service instanciation.
+            When the service is ready, we replay these commands.
+            </summary>
+        </member>
+        <member name="F:WorkShop.CommandWorker.mListLock">
+            <summary>
+            Global lock on the action list.
+            </summary>
+        </member>
+        <member name="F:WorkShop.CommandWorker.mWorkerLock">
+            <summary>
+            Global lock on the worker start/stop methods.
+            </summary>
+        </member>
+        <member name="F:WorkShop.CommandWorker.mTaskHandler">
+            <summary>
+            Monitor for multi-thread management.
+            </summary>
+        </member>
+        <member name="F:WorkShop.CommandWorker.HeadCommand">
+            <summary>
+            The unique high priority command. 
+            </summary>
+        </member>
+        <member name="F:WorkShop.CommandWorker.mProducer">
+            <summary>
+            The componenent's name that produces commands.
+            </summary>
+        </member>
+        <member name="M:WorkShop.CommandWorker.#ctor(System.String)">
+            <summary>
+            The CancellationTokenSource and ManualResetEvent from the caller class or from this class references the same storage in memory.
+            Even if them referenced values change they will point out the same object.
+            </summary>
+            <param name="producer">The componenent's name that produces commands.</param>
+        </member>
+        <member name="M:WorkShop.CommandWorker.Enqueue(System.Action,System.Threading.ManualResetEvent)">
+            <summary>
+            Add a command to the spool. Then, signal the consumer task to execute it.
+            </summary>
+            <remarks>
+            Any action enqueued in the command worker must not be time consuming and must not wait actions from UI thread. 
+            This could block the deactivated/suspended App life cycle event as it is waiting for the last running command to finish.
+            Also beware of the <see cref="M:System.Net.HttpWebRequest.BeginGetResponse(System.AsyncCallback,System.Object)"/> method in silverlight, 
+            it will hang the command worker as it is performing some work in the UI thread, it must be executed in a dedicated thread.
+            </remarks>
+            <param name="command">The new command</param>
+        </member>
+        <member name="M:WorkShop.CommandWorker.GetNextAction">
+            <summary>
+            Remove a command from the spool. Signal the consumer to wait if there is no more commands available in the spool.
+            </summary>
+        </member>
+        <member name="M:WorkShop.CommandWorker.AddHeadAction(System.Action)">
+            <summary>
+            Set the current head command or replace it if it was already set.
+            The head command is of the highest priority.
+            </summary>
+            <param name="command">The new command</param>
+        </member>
+        <member name="M:WorkShop.CommandWorker.Clear">
+            <summary>
+            Remove all commands from the spool.
+            </summary>
+        </member>
+        <member name="M:WorkShop.CommandWorker.AsyncWorker(System.Threading.CancellationToken,System.Threading.ManualResetEvent)">
+            <summary>
+            The command consumer task.
+            </summary>
+        </member>
+        <member name="M:WorkShop.CommandWorker.Start">
+            <summary>
+            Start or restart the worker thread.
+            </summary>
+        </member>
+        <member name="M:WorkShop.CommandWorker.Stop">
+            <summary>
+            Stop the worker.
+            </summary>
+        </member>
+        <member name="M:WorkShop.CommandWorker.Execute(System.Action)">
+            <summary>
+            Execute a command and catch exceptions.
+            </summary>
+            <param name="command">Command</param>
+        </member>
+        <member name="P:WorkShop.CommandWorker.AsyncWorkerTask">
+            <summary>
+            Get the command worker task.
+            </summary>
+            <value>
+            The worker task.
+            </value>
+        </member>
+        <member name="P:WorkShop.CommandWorker.CancellationTokenSource">
+            <summary>
+            Task cancellation token.
+            </summary>
+        </member>
+        <member name="T:WorkShop.Entities.Address">
+            <summary>
+            Define all address fields
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Address.Id">
+            <summary>
+            Entity Id
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Address.Address1">
+            <summary>
+            Address lines
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Address.PostCode">
+            <summary>
+            Address postCode
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Address.City">
+            <summary>
+            Address city
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Address.Country">
+            <summary>
+            Address country
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Address.PhoneNumber">
+            <summary>
+            Address contact Phone (not required)
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Address.Email">
+            <summary>
+            Address email (not required)
+            </summary>
+        </member>
+        <member name="M:WorkShop.Entities.Address.#ctor">
+            <summary>
+            Address default constructor
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Categories.Other.CategoryId">
+            <summary>
+            Enum category Id
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Categories.Chair.CategoryId">
+            <summary>
+            Enum category Id
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Categories.Lamp.CategoryId">
+            <summary>
+            Enum category Id
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Categories.Shelf.CategoryId">
+            <summary>
+            Enum category Id
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Categories.Table.CategoryId">
+            <summary>
+            Enum category Id
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Categories.Canvas.CategoryId">
+            <summary>
+            Enum category Id
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Categories.Sculpted.CategoryId">
+            <summary>
+            Enum category Id
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Categories.Rock.CategoryId">
+            <summary>
+            Enum category Id
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Categories.Wood.CategoryId">
+            <summary>
+            Enum category Id
+            </summary>
+        </member>
+        <member name="T:WorkShop.Entities.Command">
+            <summary>
+            Command between workshop and client or workshop and provider
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Command.Id">
+            <summary>
+            Entity Id
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Command.Humain">
+            <summary>
+            Humain definition for database link
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Command.HumainId">
+            <summary>
+            Humain Id
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Command.Workshop">
+            <summary>
+            Concerned workshop
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Command.WorkshopId">
+            <summary>
+            Workshop Id
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Command.Amount">
+            <summary>
+            Amount of the bill
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Command.Products">
+            <summary>
+            Product list 
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Command.DateAdd">
+            <summary>
+            Creation date of the command
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Command.DatePaid">
+            <summary>
+            Paid date of the command
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Command.ProductsId">
+            <summary>
+            Products Id list for retrievering
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Command.ProductsToString">
+            <summary>
+            Products List to string format for list display
+            </summary>
+        </member>
+        <member name="M:WorkShop.Entities.Command.#ctor">
+            <summary>
+            default constructor
+            </summary>
+        </member>
+        <member name="T:WorkShop.Entities.Contact">
+            <summary>
+            Contact class, use only for potential newsletter system
+            Default HumainDefinitions are only used
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Contact.Id">
+            <summary>
+            Customer Id
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Contact.Humain">
+            <summary>
+            Humain definition for database link
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Contact.HumainId">
+            <summary>
+            Humain Id
+            </summary>
+        </member>
+        <member name="M:WorkShop.Entities.Contact.#ctor">
+            <summary>
+            Contact Default constructor
+            </summary>
+        </member>
+        <member name="T:WorkShop.Entities.Customer">
+            <summary>
+            Define workshop customers
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Customer.Id">
+            <summary>
+            Customer Id
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Customer.Commands">
+            <summary>
+            List of all commands of the customer
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Customer.Wallet">
+            <summary>
+            Buying POWER of the customer
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Customer.Humain">
+            <summary>
+            Humain definition for database link
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Customer.HumainId">
+            <summary>
+            Humain Id
+            </summary>
+        </member>
+        <member name="M:WorkShop.Entities.Customer.#ctor">
+            <summary>
+            Customer constructor, initialise the list
+            </summary>
+        </member>
+        <member name="T:WorkShop.Entities.HumainDefinition">
+            <summary>
+            Define all default content for humain entity
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.HumainDefinition.Id">
+            <summary>
+            Id of an humain representation
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.HumainDefinition.FirstName">
+            <summary>
+            FirstName of the representation
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.HumainDefinition.LastName">
+            <summary>
+            Lastname of the representation
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.HumainDefinition.Address">
+            <summary>
+            Address of the representation
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.HumainDefinition.AddressId">
+            <summary>
+            Address Id
+            </summary>
+        </member>
+        <member name="M:WorkShop.Entities.HumainDefinition.#ctor">
+            <summary>
+            Default constructor (unusable)
+            </summary>
+        </member>
+        <member name="T:WorkShop.Entities.Owner">
+            <summary>
+            Define workshop owner's
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Owner.Id">
+            <summary>
+            Customer Id
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Owner.WorkShops">
+            <summary>
+            List of all workshops of the owner
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Owner.Humain">
+            <summary>
+            Humain definition for database link
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Owner.HumainId">
+            <summary>
+            Humain Id
+            </summary>
+        </member>
+        <member name="M:WorkShop.Entities.Owner.#ctor">
+            <summary>
+            Default construtor
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Product.Id">
+            <summary>
+            Entity Id
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Product.Designation">
+            <summary>
+            Creation name
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Product.Price">
+            <summary>
+            Creation price with comma
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Product.Vat">
+            <summary>
+            Applicable VAT in percent with comma
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Product.Category">
+            <summary>
+            Applicable VAT in percent with comma
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Product.CategoryClass">
+            <summary>
+            Display name for Category, 
+            Filled by Category enumeration
+            </summary>
+        </member>
+        <member name="M:WorkShop.Entities.Product.#ctor">
+            <summary>
+            default constructor
+            </summary>
+        </member>
+        <member name="T:WorkShop.Entities.Provider">
+            <summary>
+            Define providers of the workshop
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Provider.Id">
+            <summary>
+            Customer Id
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Provider.Commands">
+            <summary>
+            List of all commands of from the workshop to the provider
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Provider.Humain">
+            <summary>
+            Humain definition for database link
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Provider.HumainId">
+            <summary>
+            Humain Id
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Provider.Workshops">
+            <summary>
+            Provider workshops
+            </summary>
+        </member>
+        <member name="M:WorkShop.Entities.Provider.#ctor">
+            <summary>
+            Customer constructor, initialise the list
+            </summary>
+        </member>
+        <member name="T:WorkShop.Entities.Workshop">
+            <summary>
+            WorkShop definition
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Workshop.Id">
+            <summary>
+            Entity Id
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Workshop.Name">
+            <summary>
+            Name of the workshop
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Workshop.Address">
+            <summary>
+            Address of the workshop
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Workshop.AddressId">
+            <summary>
+            Address Id
+            </summary>
+        </member>
+        <member name="P:WorkShop.Entities.Workshop.Turnover">
+            <summary>
+            actual Turnover of the workshop
+            </summary>
+        </member>
+        <member name="M:WorkShop.Entities.Workshop.#ctor">
+            <summary>
+            Workshop default constructor
+            </summary>
+        </member>
+    </members>
+</doc>

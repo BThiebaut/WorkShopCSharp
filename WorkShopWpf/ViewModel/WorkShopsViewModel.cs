@@ -1,20 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using WorkShopWpf.Views;
 using WorkShop.Entities;
 using WorkShopERP.WorkShop.Utils;
-using WorkShopERP.WorkShop.JSON;
-using WorkShopERP.WorkShop.AsyncTask;
-using System.Windows.Media;
 using System.Windows;
 using System.Windows.Threading;
-using System.Threading;
 using WorkShopERP.WorkShop.API;
 using WorkShopERP.WorkShop.DataBase;
 using WorkShopERP.WorkShop.Enums;
+using WorkShopERP.WorkShop.Logger;
 
 namespace WorkShopWpf.ViewModel
 {
@@ -34,59 +30,16 @@ namespace WorkShopWpf.ViewModel
             this.homeNavigation = homeNavigation;
             LoadItems();
             LinkItems();
+            Logger logger = new Logger();
+            logger.Log("Application started");
         }
         #endregion
 
         #region Methods
-        /*
-        private void LoadItems()
-        {
-            Utils utils = new Utils();
-            WorkShop.Entities.Workshop c = new WorkShop.Entities.Workshop();
-            this.homeNavigation.WorkShopsUserControl.WorkShops = utils.ConvertListToObservableCollection<WorkShop.Entities.Workshop>(c.LoadMultipleItems());
-            
-
-            // Tests EOM
-            /*
-            Task.Factory.StartNew(() => 
-            {
-                this.homeNavigation.WorkShopsUserControl.WorkShops = utils.ConvertListToObservableCollection < WorkShop.Entities.WorkShop > (new WorkShop.Entities.WorkShop().LoadMultipleItems());
-
-                Application.Current.Dispatcher.Invoke(DispatcherPriority.Background, 
-                    new ThreadStart(delegate
-                    {
-                        for (int i = 0; i < 1000; i++)
-                        {
-                            Random rand = new Random();
-                            Task.Delay(TimeSpan.FromSeconds(0.1)).Wait();
-                            this.homeNavigation.Background = new SolidColorBrush(Color.FromRgb(
-                                Byte.Parse(rand.Next(0, 255).ToString()),
-                                Byte.Parse(rand.Next(0, 255).ToString()),
-                                Byte.Parse(rand.Next(0, 255).ToString())
-                                ));
-                        }
-                    }));
-
-                
-            });
-            int a = 0;
-            a++;
-            */
-        /*AsyncFactory fact = new AsyncFactory();
-        fact.TestIt(); */
-        /*
-        WebServiceManager<Address> wsm = new WebServiceManager<Address>(WorkShopERP.WorkShop.Enums.DataConnectionResource.LOCALAPI);
-        Address adr = new Address().LoadSingleItem();
-        Address apiResult;
-
-        adr = await wsm.Post(adr);
-
-        apiResult = await wsm.Get(adr.Id);
-
-
-    }
-    */
-
+       
+        /// <summary>
+        /// Load items if db contains it
+        /// </summary>
         private void LoadItems()
         {
             Workshop c = new Workshop().LoadSingleItem();
@@ -109,6 +62,11 @@ namespace WorkShopWpf.ViewModel
             });
         }
 
+        /// <summary>
+        /// Loard item from Db
+        /// </summary>
+        /// <param name="db"></param>
+        /// <returns></returns>
         private Task<List<Workshop>> LoadListItemsFromDb(MySQLManager<Workshop> db)
         {
             Func<List<Workshop>> dbResult = new Func<List<Workshop>>(() =>
@@ -121,11 +79,16 @@ namespace WorkShopWpf.ViewModel
             return Task.Run(dbResult);
         }
 
+        /// <summary>
+        /// Load item from api
+        /// </summary>
+        /// <param name="api"></param>
+        /// <returns></returns>
         private Task<List<Workshop>> LoadListItemsApi(WebServiceManager<Workshop> api)
         {
             Func<List<Workshop>> apiResult = new Func<List<Workshop>>(() =>
             {
-
+                
                 List<Workshop> apiData = api.Get().Result as List<Workshop>;
                 return apiData;
             });
@@ -136,6 +99,24 @@ namespace WorkShopWpf.ViewModel
         private void LinkItems()
         {
 
+        }
+
+        /// <summary>
+        /// Check if fixture exist
+        /// </summary>
+        /// <returns></returns>
+        public Boolean checkIsGenerated()
+        {
+            MySQLManager<Workshop> db = new MySQLManager<Workshop>(DataConnectionResource.LOCALMYQSL);
+            List<Workshop> dbData = LoadListItemsFromDb(db).Result;
+
+            if (dbData.Count() > 0)
+            {
+                return true;
+            }
+            Logger logger = new Logger();
+            logger.Log("Database generated");
+            return false;
         }
 
         #endregion

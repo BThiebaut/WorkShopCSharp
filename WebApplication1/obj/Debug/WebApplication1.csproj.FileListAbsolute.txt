@@ -154,3 +154,4 @@ C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WebApplication1\bin\fr\System.Web.W
 C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
 C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WebApplication1\obj\Debug\WebApplication1.dll
 C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WebApplication1\bin\WorkShopERP.xml

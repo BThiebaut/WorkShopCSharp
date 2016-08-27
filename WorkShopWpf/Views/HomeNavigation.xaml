@@ -41,7 +41,6 @@
         <TextBlock x:Name="textBlockTitle" Grid.Column="3" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Home Navigation" VerticalAlignment="Center" Grid.ColumnSpan="5" Width="242" Height="60" Margin="58,0,0,0" FontSize="24"/>
         <userControl:WorkShopsUserControl x:Name="UCWorkShops" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="5" Margin="0,1,0,0" />
         <Button x:Name="navCommands" Content="Commands List" FontSize="20" Grid.Row="7" HorizontalAlignment="Center" Width="151" Grid.Column="3" Grid.ColumnSpan="4" Margin="45,0,44,0" Click="navCommands_Click"/>
-        <Button x:Name="GenData" Grid.ColumnSpan="2" Content="Generate Datas" Grid.Column="4" HorizontalAlignment="Left" Margin="0,24,0,0" Grid.Row="8" VerticalAlignment="Top" Width="120" Click="GenData_Click" Height="20"/>
-        <Label x:Name="isGenLabel" Content="" Grid.Column="6" HorizontalAlignment="Left" Margin="19,24,0,0" Grid.Row="8" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="161" Height="20" FontSize="10"/>
+        <Label x:Name="isGenLabel" Content="" Grid.Column="3" HorizontalAlignment="Left" Margin="0,24,0,0" Grid.Row="8" VerticalAlignment="Top" Grid.ColumnSpan="4" Width="240" Height="20" FontSize="10"/>
     </Grid>
 </Page>

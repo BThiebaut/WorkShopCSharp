@@ -1,0 +1,251 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WorkShopWpf</name>
+    </assembly>
+    <members>
+        <member name="T:WorkShopWpf.MyUserControl.CommandFormUserControl">
+            <summary>
+            Logique d'interaction pour CommandFormUserControl.xaml
+            </summary>
+            <summary>
+            CommandFormUserControl
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.MyUserControl.CommandFormUserControl.LoadItemProduct(System.Object)">
+            <summary>
+            Set Product list to display
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.MyUserControl.CommandFormUserControl.LoadItemHumain(System.Object)">
+            <summary>
+            Set Humain list to display
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.MyUserControl.CommandFormUserControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:WorkShopWpf.MyUserControl.CommandsUserControl">
+            <summary>
+            Logique d'interaction pour commandsUserControl.xaml
+            </summary>
+            <summary>
+            CommandsUserControl
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.MyUserControl.CommandsUserControl.LoadItem(System.Object)">
+            <summary>
+            Set command list to display
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.MyUserControl.CommandsUserControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:WorkShopWpf.MyUserControl.CustomersUserControl">
+            <summary>
+            Logique d'interaction pour CustomersUserControl.xaml
+            </summary>
+            <summary>
+            CustomersUserControl
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.MyUserControl.CustomersUserControl.LoadItem(System.Object)">
+            <summary>
+            Set Customer list to display
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.MyUserControl.CustomersUserControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:WorkShopWpf.MyUserControl.ProductsUserControl">
+            <summary>
+            Logique d'interaction pour CustomersUserControl.xaml
+            </summary>
+            <summary>
+            ProductsUserControl
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.MyUserControl.ProductsUserControl.LoadItem(System.Object)">
+            <summary>
+            Set Producs list to display
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.MyUserControl.ProductsUserControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:WorkShopWpf.MyUserControl.WorkShopsUserControl">
+            <summary>
+            Logique d'interaction pour WorkShopsUserControl.xaml
+            </summary>
+            <summary>
+            WorkShopsUserControl
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.MyUserControl.WorkShopsUserControl.LoadItem(System.Object)">
+            <summary>
+            Set Workshops list to display
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.MyUserControl.WorkShopsUserControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.ViewModel.Process.Fixtures.#ctor">
+            <summary>
+            Launch fixtures generation of all datas
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.ViewModel.Process.Fixtures.LoadListProductsFromDb(WorkShopERP.WorkShop.DataBase.MySQLManager{WorkShop.Entities.Product})">
+            <summary>
+            get products list for command setting from DB
+            </summary>
+            <param name="db"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkShopWpf.ViewModel.WorkShopsViewModel.LoadItems">
+            <summary>
+            Load items if db contains it
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.ViewModel.WorkShopsViewModel.LoadListItemsFromDb(WorkShopERP.WorkShop.DataBase.MySQLManager{WorkShop.Entities.Workshop})">
+            <summary>
+            Loard item from Db
+            </summary>
+            <param name="db"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkShopWpf.ViewModel.WorkShopsViewModel.LoadListItemsApi(WorkShopERP.WorkShop.API.WebServiceManager{WorkShop.Entities.Workshop})">
+            <summary>
+            Load item from api
+            </summary>
+            <param name="api"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkShopWpf.ViewModel.WorkShopsViewModel.checkIsGenerated">
+            <summary>
+            Check if fixture exist
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WorkShopWpf.Views.CommandFormView">
+            <summary>
+            Logique d'interaction pour CommandFormView.xaml
+            </summary>
+            <summary>
+            CommandFormView
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.Views.CommandFormView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:WorkShopWpf.Views.CommandsView">
+            <summary>
+            Logique d'interaction pour CommandsView.xaml
+            </summary>
+            <summary>
+            CommandsView
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.Views.CommandsView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:WorkShopWpf.Views.CustomersView">
+            <summary>
+            Logique d'interaction pour CustomersView.xaml
+            </summary>
+            <summary>
+            CustomersView
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.Views.CustomersView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:WorkShopWpf.Views.HomeNavigation">
+            <summary>
+            Logique d'interaction pour HomeNavigation.xaml
+            </summary>
+            <summary>
+            HomeNavigation
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.Views.HomeNavigation.GenDataBase">
+            <summary>
+            Generate database at start of the program
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.Views.HomeNavigation.SetOkMessage(System.Object)">
+            <summary>
+            Display a Ok message
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkShopWpf.Views.HomeNavigation.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:WorkShopWpf.Views.ProductsView">
+            <summary>
+            Logique d'interaction pour ProductsView.xaml
+            </summary>
+            <summary>
+            ProductsView
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.Views.ProductsView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:WorkShopWpf.App">
+            <summary>
+            Logique d'interaction pour App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:WorkShopWpf.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:WorkShopWpf.Properties.Resources">
+            <summary>
+              Une classe de ressource fortement typée destinée, entre autres, à la consultation des chaînes localisées.
+            </summary>
+        </member>
+        <member name="P:WorkShopWpf.Properties.Resources.ResourceManager">
+            <summary>
+              Retourne l'instance ResourceManager mise en cache utilisée par cette classe.
+            </summary>
+        </member>
+        <member name="P:WorkShopWpf.Properties.Resources.Culture">
+            <summary>
+              Remplace la propriété CurrentUICulture du thread actuel pour toutes
+              les recherches de ressources à l'aide de cette classe de ressource fortement typée.
+            </summary>
+        </member>
+    </members>
+</doc>

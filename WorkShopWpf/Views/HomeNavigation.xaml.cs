@@ -38,6 +38,11 @@ namespace WorkShopWpf.Views
             this.InitializeComponent();
             this.WorkShopsUserControl = this.UCWorkShops;
             this.workShopsViewModel = new WorkShopsViewModel(this);
+
+            if (!this.workShopsViewModel.checkIsGenerated())
+            {
+                this.GenDataBase();
+            }
         }
         #endregion
         #region Methods
@@ -56,10 +61,12 @@ namespace WorkShopWpf.Views
         {
             (this.Parent as NavigationWindow).Content = new CommandsView();
         }
-
-        private void GenData_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Generate database at start of the program
+        /// </summary>
+        private void GenDataBase()
         {
-            this.isGenLabel.Content = "Generation in Process...";
+            this.isGenLabel.Content = "Db Generation in Process...";
             Fixtures fix = new Fixtures();
             Task.Factory.StartNew(() =>
             {
@@ -74,14 +81,20 @@ namespace WorkShopWpf.Views
                 Application appl = System.Windows.Application.Current;
                 appl.Dispatcher.BeginInvoke(DispatcherPriority.Background,
                     new DispatcherOperationCallback(this.SetOkMessage), null);
-
+                
             });
 
         }
 
+        /// <summary>
+        /// Display a Ok message
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
         public object SetOkMessage(object o)
         {
             this.isGenLabel.Content = "Generation OK";
+         
             return null;
         }
         #endregion

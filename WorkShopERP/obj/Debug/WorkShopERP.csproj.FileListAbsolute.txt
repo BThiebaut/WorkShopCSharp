@@ -28,3 +28,4 @@ C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\Newtonsoft.Js
 C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\EntityFramework.xml
 C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Debug\WorkShopERP.XML

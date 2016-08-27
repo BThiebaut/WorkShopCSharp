@@ -1,0 +1,14 @@
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Release\WorkShopERP.dll.config
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Release\WorkShopERP.dll
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Release\WorkShopERP.pdb
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Release\EntityFramework.dll
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Release\Faker.dll
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Release\MySql.Data.dll
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Release\mysql.data.entity.EF6.dll
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Release\Newtonsoft.Json.dll
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Release\EntityFramework.xml
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\bin\Release\Newtonsoft.Json.xml
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\obj\Release\WorkShopERP.dll
+C:\Users\Ben\workspace\CSharp\WorkShopCSharp\WorkShopERP\obj\Release\WorkShopERP.pdb
